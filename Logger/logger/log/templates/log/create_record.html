@@ -1,0 +1,69 @@
+{% extends "log/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="container my-2 py-5">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                {{ form.technician|as_crispy_field  }}
+            </div>
+            <div class="form-group col-md-2">
+                {{ form.client|as_crispy_field  }}
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.subject|as_crispy_field }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                {{ form.start_date_time }}
+                <!-- <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="form-group col-md-4">
+                {{ form.end_date_time }}
+                <!-- <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                    {{ form.end_date_time }}
+                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div> -->
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                {{ form.total_hours|as_crispy_field  }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.service_type|as_crispy_field  }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.category|as_crispy_field  }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.description|as_crispy_field  }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.status|as_crispy_field  }}
+            </div>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+{% endblock content %}

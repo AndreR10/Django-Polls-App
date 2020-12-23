@@ -1,16 +1,29 @@
 from log.models import Record
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import ListView
-from .models import Record
+from .models import *
+from .forms import RecordForm
 # Create your views here.
 
 
 def HomeListView(request):
     if request.user.is_authenticated:
-    # Do something for authenticated users.
+        # Do something for authenticated users.
         current_user = request.user
-    
+        records = Record.objects.filter(technician=current_user)
+        return render(request, 'log/home.html', {'records': records})
     else:
-    # Do something for anonymous users.
-    context = {'record': Record.objects.all()}
+        return render('users/login.hmtl')
+
+
+def CreateRecordView(request):
+    form = RecordForm(initial={'technician': request.user})
+    if request.method == 'POST':
+        form = RecordForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context = {'form': form}
+    return render(request, 'log/create_record.html', context)

@@ -18,7 +18,7 @@ def Login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('log-home')
+            return redirect('home')
 
         else:
             user = authenticate(
@@ -27,7 +27,7 @@ def Login(request):
                 password=password)
             if user is not None:
                 login(request, user)
-                return redirect('log-home')
+                return redirect('home')
             else:
                 messages.info(request, 'Email or Password are not correct.')
                 return redirect('login')
