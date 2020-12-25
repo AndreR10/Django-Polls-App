@@ -18,12 +18,14 @@ def HomeListView(request):
 
 
 def CreateRecordView(request):
+    title = "Create Record"
     form = RecordForm(initial={'technician': request.user})
     if request.method == 'POST':
         form = RecordForm(request.POST)
         if form.is_valid():
             form.save()
+            form = RecordForm(initial={'technician': request.user})
             return redirect('/')
 
-    context = {'form': form}
+    context = {'form': form, 'title': title}
     return render(request, 'log/create_record.html', context)
