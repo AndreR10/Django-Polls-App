@@ -29,3 +29,14 @@ def CreateRecordView(request):
 
     context = {'form': form, 'title': title}
     return render(request, 'log/create_record.html', context)
+
+
+def DetailRecordView(request, pk):
+    record = Record.objects.get(id=pk)
+    context = {'record': record}
+
+    return render(request, 'log/record.html', context)
+
+
+def UpdateRecordView(request, pk):
+    pass
