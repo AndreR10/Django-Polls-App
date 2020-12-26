@@ -1,6 +1,7 @@
 $(document).ready(function () {
     if (!$("#id_end_date_time").val()) {
         $("#calculateHour").attr('disabled', true);
+
     } else {
         $("#calculateHour").click(function () {
             var start = new Date($("#id_start_date_time").val());
@@ -11,7 +12,7 @@ $(document).ready(function () {
             const hours = Math.floor(diffInMilliSeconds / 3600) % 24;
             diffInMilliSeconds -= hours * 3600;
 
-            $("#id_total_hours").val(hours.toString());
+            $("#id_total_hours").val(hours);
         });
     }
 

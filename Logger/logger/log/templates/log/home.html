@@ -39,8 +39,8 @@
                     <td>{{record.total_hours}}</td>
                     <td>{{record.service_type.name}}</td>
                     <td><a class="btn btn-sm btn-info " href="{% url 'detail-record' record.id %}">View</a><a
-                            class="btn btn-sm btn-dark mx-2" href="">Update</a><a class="btn btn-sm btn-danger"
-                            href="">Remove</a></td>
+                            class="btn btn-sm btn-dark mx-2" href="{% url 'update-record' record.id %}">Update</a><a
+                            class="btn btn-sm btn-danger" href="">Remove</a></td>
 
                 </tr>
                 {% endfor %}

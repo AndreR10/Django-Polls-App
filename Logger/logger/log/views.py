@@ -39,4 +39,15 @@ def DetailRecordView(request, pk):
 
 
 def UpdateRecordView(request, pk):
-    pass
+    title = "Update Record"
+
+    record = Record.objects.get(id=pk)
+    form = RecordForm(instance=record)
+    if request.method == 'POST':
+        form = RecordForm(request.POST, instance=record)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context = {'form': form, 'title': title}
+    return render(request, 'log/create_record.html', context)

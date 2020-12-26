@@ -1,8 +1,11 @@
+from bootstrap_datepicker_plus import DateTimePickerInput
 from django.forms import ModelForm
 from django.forms import fields
 from django.forms import widgets
 from django.forms.widgets import DateTimeInput
 from .models import Record
+from django import forms
+
 from django import forms
 
 
@@ -12,23 +15,18 @@ class RecordForm(ModelForm):
         fields = ('technician', 'client', 'subject', 'start_date_time',
                   'end_date_time', 'end_date_time', 'total_hours',
                   'service_type', 'category', 'description', 'status')
+
+        labels = {"start_date_time": "Start", "end_date_time": "End"}
+
         widgets = {
             'start_date_time':
-            DateTimeInput(
-                attrs={
-                    # 'class': 'form-control',
-                    # 'id': 'start_date_time',
-                    'type': 'datetime-local'
-                }),
+            DateTimePickerInput(options={
+                "format": "DD/MM/YYYY HH:mm",
+            }),
             'end_date_time':
-            DateTimeInput(
-                attrs={
-                    # 'class': 'form-control datetimepicker-input',
-                    # 'class': 'form-control',
-                    # 'id': 'end_date_time',
-                    # 'data-target': '#datetimepicker1'
-                    'type': 'datetime-local'
-                }),
+            DateTimePickerInput(options={
+                "format": "DD/MM/YYYY HH:mm",
+            }),
         }
 
         # def clean_end_date_time(self):
