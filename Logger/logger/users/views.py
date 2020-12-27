@@ -9,7 +9,7 @@ from .forms import UserLoginForm
 def Login(request):
     if request.method == 'POST':
         username_email = request.POST.get('email_username')
-        print(username_email)
+
         password = request.POST.get('password')
 
         user = authenticate(request,

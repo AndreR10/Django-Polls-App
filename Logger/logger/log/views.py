@@ -14,7 +14,7 @@ def HomeListView(request):
         records = Record.objects.filter(technician=current_user)
         return render(request, 'log/home.html', {'records': records})
     else:
-        return render('users/login.hmtl')
+        return render(request, 'users/login.html')
 
 
 def CreateRecordView(request):

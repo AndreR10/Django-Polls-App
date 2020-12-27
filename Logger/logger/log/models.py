@@ -1,6 +1,7 @@
 from logger.settings import STATIC_URL
 from django.db import models
 from django.utils import timezone
+from datetime import date, time
 
 from django.contrib.auth.models import User
 # Create your models here.
@@ -38,8 +39,9 @@ class Record(models.Model):
     technician = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
     subject = models.CharField(max_length=100)
-    start_date_time = models.DateTimeField(default=timezone.now)
-    end_date_time = models.DateTimeField(default=None)
+    date = models.DateField(default=date.today)
+    start_time = models.TimeField(default=None)
+    end_time = models.TimeField()
     total_hours = models.PositiveIntegerField(blank=True, null=True)
     service_type = models.ForeignKey(Service, on_delete=models.DO_NOTHING)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
