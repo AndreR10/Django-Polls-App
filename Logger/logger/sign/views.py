@@ -32,4 +32,4 @@ def Login(request):
                 messages.info(request, 'Email or Password are not correct.')
                 return redirect('login')
 
-    return render(request, 'users/login.html')
+    return render(request, 'sign/login.html')

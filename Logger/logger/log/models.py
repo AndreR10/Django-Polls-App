@@ -35,18 +35,15 @@ class Status(models.Model):
         return self.name
 
 
-class Record(models.Model):
+class Log(models.Model):
     technician = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
     subject = models.CharField(max_length=100)
-    date = models.DateField(default=date.today)
+    date = models.DateField(default=None)
     start_time = models.TimeField(default=None)
-    end_time = models.TimeField()
+    end_time = models.TimeField(default=None)
     total_hours = models.PositiveIntegerField(blank=True, null=True)
     service_type = models.ForeignKey(Service, on_delete=models.DO_NOTHING)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     description = models.TextField(max_length=500)
     status = models.ForeignKey(Status, on_delete=models.DO_NOTHING)
-
-    # def __str__(self):
-    #     return 'Technician: ' + self.technician.username + '|' 'Client: ' + self.client.name + '|' + 'Subject: ' + self.subject + '|' + 'Start at: ' + self.start_date_time + '|' + 'Finished at: ' + self.end_date_time + '|' + 'Total hours: ' + self.total_hours + '|' + 'Service type: ' + self.service_type.name + '|' + 'Category: ' + self.category.name + '|' + 'Description: ' + self.description

@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>SignIn </title>
+
+    <title>Sign In </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
 
@@ -30,7 +30,7 @@
         }
     </style>
     <!-- Custom styles for this template -->
-    <link href="{% static 'users/signin.css' %}" rel="stylesheet">
+    <link href="{% static 'sign/signin.css' %}" rel="stylesheet">
 </head>
 
 <body class="text-center">
@@ -42,7 +42,7 @@
         {% endif %}
         {% csrf_token %}
         <img class="mb-4" src="{% static 'log/assets/brand/bootstrap-solid.svg' %}" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
         <label for="{{ form.username.id_for_label }}" class="sr-only">Username or Email</label>
         <!-- {{ form.username }} -->
         <input type="text" name="email_username" id="inputEmail" class="form-control" placeholder="Email or Username"

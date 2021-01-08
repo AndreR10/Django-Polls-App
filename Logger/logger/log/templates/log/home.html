@@ -31,15 +31,15 @@
                 </tr>
             </thead>
             <tbody>
-                {% for record in records %}
+                {% for log in logs %}
                 <tr>
-                    <td>{{record.id}}</td>
-                    <td>{{record.status}}</td>
-                    <td>{{record.client.name}}</td>
-                    <td>{{record.total_hours}}</td>
-                    <td>{{record.service_type.name}}</td>
-                    <td><a class="btn btn-sm btn-info " href="{% url 'detail-record' record.id %}">View</a><a
-                            class="btn btn-sm btn-dark mx-2" href="{% url 'update-record' record.id %}">Update</a><a
+                    <td>{{log.id}}</td>
+                    <td>{{log.status}}</td>
+                    <td>{{log.client.name}}</td>
+                    <td>{{log.total_hours}}</td>
+                    <td>{{log.service_type.name}}</td>
+                    <td><a class="btn btn-sm btn-info " href="{% url 'detail-log' log.id %}">View</a><a
+                            class="btn btn-sm btn-dark mx-2" href="{% url 'update-log' log.id %}">Update</a><a
                             class="btn btn-sm btn-danger" href="">Remove</a></td>
 
                 </tr>

@@ -3,9 +3,9 @@ from . import views
 
 urlpatterns = [
     path('', views.HomeListView, name="home"),
-    path('record/<str:pk>', views.DetailRecordView, name="detail-record"),
-    path('create_record/', views.CreateRecordView, name="create-record"),
-    path('update_record/<str:pk>/',
-         views.UpdateRecordView,
-         name="update-record")
+    path('log/<str:pk>', views.DetailLogView, name="detail-log"),
+    path('create_log/', views.CreateLogView, name="create-log"),
+    path('update_log/<str:pk>/',
+         views.UpdateLogView,
+         name="update-log")
 ]

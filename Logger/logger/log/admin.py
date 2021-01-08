@@ -3,8 +3,8 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(Record)
 admin.site.register(Client)
 admin.site.register(Service)
 admin.site.register(Category)
 admin.site.register(Status)
+admin.site.register(Log)

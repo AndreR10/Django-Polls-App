@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'users.apps.UsersConfig',
+    'sign.apps.SignConfig',
     'log.apps.LogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
